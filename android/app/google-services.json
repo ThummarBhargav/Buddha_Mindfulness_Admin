@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "354403298691",
+    "firebase_url": "https://buddhamindfulness-7c84c-default-rtdb.firebaseio.com",
+    "project_id": "buddhamindfulness-7c84c",
+    "storage_bucket": "buddhamindfulness-7c84c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:354403298691:android:263be927992e63c2a39ab6",
+        "android_client_info": {
+          "package_name": "com.example.untitled"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "354403298691-fc0t02dv28k9c69lig88sl69th9h4e8v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4HVs9WSqB8lQfAIgwQoak-oXRgoxREjs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "354403298691-fc0t02dv28k9c69lig88sl69th9h4e8v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:354403298691:android:51cd41bd9fe45d32a39ab6",
+        "android_client_info": {
+          "package_name": "com.mobileappxperts.buddhaquotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "354403298691-fc0t02dv28k9c69lig88sl69th9h4e8v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4HVs9WSqB8lQfAIgwQoak-oXRgoxREjs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "354403298691-fc0t02dv28k9c69lig88sl69th9h4e8v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:354403298691:android:08d541665cbef7fba39ab6",
+        "android_client_info": {
+          "package_name": "com.nirav.firebasedatabasetransfer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "354403298691-fc0t02dv28k9c69lig88sl69th9h4e8v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4HVs9WSqB8lQfAIgwQoak-oXRgoxREjs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "354403298691-fc0t02dv28k9c69lig88sl69th9h4e8v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
