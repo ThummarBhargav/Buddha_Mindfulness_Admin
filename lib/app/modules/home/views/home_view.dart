@@ -1,13 +1,11 @@
 import 'dart:ui';
-
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../constants/color_constant.dart';
 import '../../../../constants/firebase_controller.dart';
 import '../../../../constants/sizeConstant.dart';
 import '../../../../utilities/buttons.dart';
+import '../../../../utilities/text_field.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -57,131 +55,119 @@ class HomeView extends GetView<HomeController> {
               ClipRRect(
                 // Clip it cleanly.
                 child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 1, sigmaY: 1),
+                  filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
                   child: Container(
                     color: Colors.white.withOpacity(0.9),
                     alignment: Alignment.center,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
-                          width: MySize.getHeight(500),
-                          height: MySize.getHeight(400),
-                          decoration: BoxDecoration(
-                            color: Colors.blue.withOpacity(0.3),
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 10),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                DropdownButtonFormField<String>(
-                                  decoration: InputDecoration(
-                                      border: OutlineInputBorder(
-                                        borderSide:
-                                            BorderSide(color: Colors.white),
-                                        borderRadius: const BorderRadius.all(
-                                          const Radius.circular(10.0),
+                        Form(
+                          key: controller.formKey,
+                          child: Container(
+                            width: MySize.getHeight(500),
+                            height: MySize.getHeight(400),
+                            decoration: BoxDecoration(
+                              color: Colors.blue.withOpacity(0.3),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 20, vertical: 10),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  DropdownButtonFormField<String>(
+                                    decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                          borderSide:
+                                              BorderSide(color: Colors.white),
+                                          borderRadius: const BorderRadius.all(
+                                            const Radius.circular(10.0),
+                                          ),
                                         ),
-                                      ),
-                                      filled: true,
-                                      focusColor: Colors.black,
-                                      hintStyle:
-                                          TextStyle(color: Colors.grey[800]),
-                                      hintText: "Select  Type",
-                                      fillColor: Colors.blue[100]),
-                                  value: controller.dropdownValue.value,
-                                  items: <String>['post', 'dailyThought']
-                                      .map<DropdownMenuItem<String>>(
-                                          (String value) {
-                                    return DropdownMenuItem<String>(
-                                      value: value,
-                                      child: Text(
-                                        value,
-                                        style: TextStyle(fontSize: 20),
-                                      ),
-                                    );
-                                  }).toList(),
-                                  // Step 5.
-                                  onChanged: (String? newValue) {
-                                    controller.dropdownValue.value = newValue!;
-                                  },
-                                ),
-                                Spacing.height(20),
-                                ElevatedButton(
-                                    onPressed: () {
-                                      controller.pickFile();
+                                        filled: true,
+                                        focusColor: Colors.black,
+                                        hintStyle:
+                                            TextStyle(color: Colors.grey[800]),
+                                        hintText: "Select  Type",
+                                        fillColor: Colors.blue[100]),
+                                    value: controller.dropdownValue.value,
+                                    items: <String>['post', 'dailyThought']
+                                        .map<DropdownMenuItem<String>>(
+                                            (String value) {
+                                      return DropdownMenuItem<String>(
+                                        value: value,
+                                        child: Text(
+                                          value,
+                                          style: TextStyle(fontSize: 20),
+                                        ),
+                                      );
+                                    }).toList(),
+                                    // Step 5.
+                                    onChanged: (String? newValue) {
+                                      controller.dropdownValue.value =
+                                          newValue!;
                                     },
-                                    child: Text("Upload")),
-                                Spacing.height(20),
-                                Text(controller.hasImage.isFalse
-                                    ? "Please select a file"
-                                    : controller.result!.value.files.first.name
-                                        .toString()),
-                                Spacing.height(20),
-                                ElevatedButton(
-                                    onPressed: () {
-                                      controller.pickThumbnail();
-                                    },
-                                    child: Text("Upload")),
-                                Spacing.height(20),
-                                Text(controller.hasThumbnail.isFalse
-                                    ? "Please select a Thumbnail"
-                                    : controller
-                                        .resultThumbnail!.value.files.first.name
-                                        .toString()),
-                                Spacing.height(20),
-                                InkWell(
-                                  onTap: () async {
-                                    if (!isNullEmptyOrFalse(
-                                        controller.result)) {
-                                      RxString videoTumbnail = "".obs;
-                                      RxString medialink = "".obs;
-                                      if (!isNullEmptyOrFalse(
-                                          controller.resultThumbnail)) {
-                                        await FirebaseStorage.instance
-                                            .ref(
-                                                '${controller.resultThumbnail!.value.files.first.name}')
-                                            .putData(controller.resultThumbnail!
-                                                .value.files.first.bytes!)
-                                            .then((p0) async {
-                                          videoTumbnail.value =
-                                              await p0.ref.getDownloadURL();
-                                        }).catchError((e) {
-                                          print(e);
-                                        });
-                                        ;
-                                      }
-                                      await FirebaseStorage.instance
-                                          .ref(
-                                              '${controller.result!.value.files.first.name}')
-                                          .putData(controller
-                                              .result!.value.files.first.bytes!)
-                                          .then((p0) async {
-                                        medialink.value =
-                                            await p0.ref.getDownloadURL();
-                                      }).catchError((e) {
-                                        print(e);
-                                      });
-                                      print("mediaLink: $medialink");
-                                      await fireController.addData(
-                                          context: context,
-                                          isSelected:
-                                              controller.dropdownValue.value,
-                                          mediaLink: medialink.value,
-                                          videoThumbnail: videoTumbnail.value);
-                                    } else {
-                                      ShowSnackBar(context,
-                                          "Please select a file", Colors.red);
-                                    }
-                                  },
-                                  child: getButton(
-                                    title: 'Submit',
                                   ),
-                                ),
-                              ],
+                                  Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(vertical: 8.0),
+                                    child:
+                                        Text("Please Enter (Image/Video) Url"),
+                                  ),
+                                  getTextField(
+                                      hintText: "Enter (Image/Video) Url",
+                                      textEditingController:
+                                          controller.mediaLinkController.value,
+                                      ErrorBorderColor: Colors.red,
+                                      validation: (value) {
+                                        return controller
+                                            .hasValidUrl(value.toString());
+                                      },
+                                      borderRadius: 10,
+                                      borderColor: Colors.black,
+                                      prefixIcon: Icon(Icons.link)),
+                                  Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(vertical: 8.0),
+                                    child: Text("Please Enter Thumbnail Url"),
+                                  ),
+                                  getTextField(
+                                      hintText: "Enter Thumbnail Url",
+                                      textEditingController: controller
+                                          .videoThumbnaiController.value,
+                                      borderRadius: 10,
+                                      borderColor: Colors.black,
+                                      prefixIcon: Icon(Icons.link)),
+                                  Spacing.height(20),
+                                  InkWell(
+                                    onTap: () async {
+                                      if (controller.formKey.currentState!
+                                          .validate()) {
+                                        await fireController.addData(
+                                            context: context,
+                                            isSelected:
+                                                controller.dropdownValue.value,
+                                            mediaLink: controller
+                                                .mediaLinkController.value.text
+                                                .toString()
+                                                .trim(),
+                                            videoThumbnail: controller
+                                                .videoThumbnaiController
+                                                .value
+                                                .text
+                                                .toString()
+                                                .trim());
+                                      }
+                                    },
+                                    child: getButton(
+                                      title: 'Submit',
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         )

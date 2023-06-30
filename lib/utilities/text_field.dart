@@ -13,6 +13,7 @@ TextFormField getTextField({
   double? size = 70,
   Widget? suffix,
   Color? borderColor,
+  Color? ErrorBorderColor,
   Color? fillColor,
   bool isFilled = false,
   Color? labelColor,
@@ -64,7 +65,8 @@ TextFormField getTextField({
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(
             (borderRadius == null) ? MySize.getHeight(5) : borderRadius),
-        borderSide: BorderSide(color: borderColor ?? appTheme.primaryTheme),
+        borderSide:
+            BorderSide(color: ErrorBorderColor ?? appTheme.primaryTheme),
       ),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(
