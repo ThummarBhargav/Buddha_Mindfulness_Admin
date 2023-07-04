@@ -34,11 +34,11 @@ class ProgressDialogUtils {
 }
 
 class CustomDialogs {
-  void showCircularDialog(BuildContext context) {
+  static void showCircularDialog(BuildContext context) {
     CircularDialog.showLoadingDialog(context);
   }
 
-  void hideCircularDialog(BuildContext context) {
+  static void hideCircularDialog(BuildContext context) {
     Get.back();
   }
 

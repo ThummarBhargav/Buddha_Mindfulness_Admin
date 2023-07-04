@@ -21,11 +21,20 @@ class DefaultFirebaseOptions {
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
-        return android;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for android - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -44,44 +53,13 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyD2Zmh4r3kizaQiaOq15SaVTaeLCjbCAds',
-    appId: '1:354403298691:web:0a9da3e3e6d97d1fa39ab6',
-    messagingSenderId: '354403298691',
-    projectId: 'buddhamindfulness-7c84c',
-    authDomain: 'buddhamindfulness-7c84c.firebaseapp.com',
-    databaseURL: 'https://buddhamindfulness-7c84c-default-rtdb.firebaseio.com',
-    storageBucket: 'buddhamindfulness-7c84c.appspot.com',
-    measurementId: 'G-RBVGS9GM54',
-  );
-
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyC4HVs9WSqB8lQfAIgwQoak-oXRgoxREjs',
-    appId: '1:354403298691:android:263be927992e63c2a39ab6',
-    messagingSenderId: '354403298691',
-    projectId: 'buddhamindfulness-7c84c',
-    databaseURL: 'https://buddhamindfulness-7c84c-default-rtdb.firebaseio.com',
-    storageBucket: 'buddhamindfulness-7c84c.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCke5zJ-YN-vKlNy-bUfRUTcPqGN6-BPo4',
-    appId: '1:354403298691:ios:51b72d36074405d3a39ab6',
-    messagingSenderId: '354403298691',
-    projectId: 'buddhamindfulness-7c84c',
-    databaseURL: 'https://buddhamindfulness-7c84c-default-rtdb.firebaseio.com',
-    storageBucket: 'buddhamindfulness-7c84c.appspot.com',
-    iosClientId: '354403298691-gbphncali5scrohccf2hpdi6qhhu9p82.apps.googleusercontent.com',
-    iosBundleId: 'com.example.untitled',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCke5zJ-YN-vKlNy-bUfRUTcPqGN6-BPo4',
-    appId: '1:354403298691:ios:92b2cdc6d76a658da39ab6',
-    messagingSenderId: '354403298691',
-    projectId: 'buddhamindfulness-7c84c',
-    databaseURL: 'https://buddhamindfulness-7c84c-default-rtdb.firebaseio.com',
-    storageBucket: 'buddhamindfulness-7c84c.appspot.com',
-    iosClientId: '354403298691-7u6nad9cjerm8ef31afbkm7k6n3kv8tq.apps.googleusercontent.com',
-    iosBundleId: 'com.example.untitled.RunnerTests',
+    apiKey: 'AIzaSyBSovbhQ-gf_Gr7vJoCsn12YapiRTPBBBQ',
+    appId: '1:688032127071:web:49134ae8a40047b8c2e3ea',
+    messagingSenderId: '688032127071',
+    projectId: 'swaminarayanstatus-f8550',
+    authDomain: 'swaminarayanstatus-f8550.firebaseapp.com',
+    databaseURL: 'https://swaminarayanstatus-f8550-default-rtdb.firebaseio.com',
+    storageBucket: 'swaminarayanstatus-f8550.appspot.com',
+    measurementId: 'G-YRZZ8FF2P9',
   );
 }

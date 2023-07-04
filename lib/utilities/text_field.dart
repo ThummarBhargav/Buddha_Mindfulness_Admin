@@ -65,8 +65,7 @@ TextFormField getTextField({
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(
             (borderRadius == null) ? MySize.getHeight(5) : borderRadius),
-        borderSide:
-            BorderSide(color: ErrorBorderColor ?? appTheme.primaryTheme),
+        borderSide: BorderSide(color: ErrorBorderColor ?? appTheme.primaryTheme),
       ),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(
