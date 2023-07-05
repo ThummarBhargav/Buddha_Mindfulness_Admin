@@ -53,13 +53,13 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBSovbhQ-gf_Gr7vJoCsn12YapiRTPBBBQ',
-    appId: '1:688032127071:web:49134ae8a40047b8c2e3ea',
-    messagingSenderId: '688032127071',
-    projectId: 'swaminarayanstatus-f8550',
-    authDomain: 'swaminarayanstatus-f8550.firebaseapp.com',
-    databaseURL: 'https://swaminarayanstatus-f8550-default-rtdb.firebaseio.com',
-    storageBucket: 'swaminarayanstatus-f8550.appspot.com',
-    measurementId: 'G-YRZZ8FF2P9',
+    apiKey: 'AIzaSyD2Zmh4r3kizaQiaOq15SaVTaeLCjbCAds',
+    appId: '1:354403298691:web:0a9da3e3e6d97d1fa39ab6',
+    messagingSenderId: '354403298691',
+    projectId: 'buddhamindfulness-7c84c',
+    authDomain: 'buddhamindfulness-7c84c.firebaseapp.com',
+    databaseURL: 'https://buddhamindfulness-7c84c-default-rtdb.firebaseio.com',
+    storageBucket: 'buddhamindfulness-7c84c.appspot.com',
+    measurementId: 'G-RBVGS9GM54',
   );
 }
